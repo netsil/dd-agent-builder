@@ -1,0 +1,37 @@
+{
+  "variables": {
+    "aws_access_key": "",
+    "aws_secret_key": "",
+    "admin_password": ""
+  },
+  "_comment": "AMicrosoft Windows Server 2012 R2 Base - ami-21414f36",
+  "builders": [{
+    "source_ami": "ami-21414f36",
+    "type": "amazon-ebs",
+    "access_key": "{{user `aws_access_key`}}",
+    "secret_key": "{{user `aws_secret_key`}}",
+    "region": "us-east-1",
+    "instance_type": "t2.medium",
+    "ami_name": "omnibus-build {{timestamp}}",
+    "communicator": "winrm",
+    "winrm_username": "Administrator",
+    "winrm_password": "{{user `admin_password`}}",
+    "user_data_file": "bootstrap-aws.txt"
+  }],
+  "provisioners": [{
+    "type": "powershell",
+    "scripts": [
+      "install-chef.ps1"
+  ]},
+  {
+    "type": "file",
+    "source": "attributes.json",
+    "destination": "c:\\cfg\\attributes.json"
+  },
+  {
+    "type": "windows-shell",
+    "scripts": [
+      "chef-prepare.bat"
+    ]
+  }]
+}
