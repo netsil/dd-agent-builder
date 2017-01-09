@@ -18,7 +18,7 @@ end
 
 git "#{build_user_home}\\integrations-core" do
   repository 'https://github.com/DataDog/integrations-core'
-  revision default['dd-agent-builder']['dd-agent_branch']
+  revision default['dd-agent-builder']['dd-integrations-core_branch']
   action :sync
 end
 

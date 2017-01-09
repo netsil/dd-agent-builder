@@ -7,6 +7,7 @@ default['dd-agent-builder']['dd-agent_branch'] = 'master'
 default['dd-agent-builder']['dd-agent-omnibus_branch'] = 'master'
 default['dd-agent-builder']['omnibus-software_branch'] = 'master'
 default['dd-agent-builder']['omnibus-ruby_branch'] = 'master'
+default['dd-agent-builder']['dd-integrations-core_branch'] = 'master'
 
 default['dd-agent-builder']['go']['version'] = '1.6.2'
 # Values are 386 or amd64
