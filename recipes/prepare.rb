@@ -16,6 +16,12 @@ git "#{build_user_home}\\dd-agent-omnibus" do
   action :sync
 end
 
+git "#{build_user_home}\\integrations-core" do
+  repository 'https://github.com/DataDog/integrations-core'
+  revision default['dd-agent-builder']['dd-integrations-core_branch']
+  action :sync
+end
+
 directory node['dd-agent-builder']['install_dir'] do
   action :create
   recursive true
