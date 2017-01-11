@@ -1,7 +1,8 @@
 <powershell>
 
 # set administrator password
-net user Administrator datadogRocks!  
+# net user Administrator 
+
 wmic useraccount where "name='Administrator'" set PasswordExpires=FALSE
 
 # configure WinRM

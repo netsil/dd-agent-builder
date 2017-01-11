@@ -10,9 +10,11 @@ set PATH=%PATH%;c:\opscode\chefdk\embedded\git\bin
 git config --global user.name "Croissant Builder"
 git config --global user.email "croissant@datadoghq.com"
 
+REM set a branch here to use a specific branch of dd-agent-builder
+set DD_AGENT_BUILDER_BRANCH=
 mkdir \src
 cd \src
-git clone https://github.com/DataDog/dd-agent-builder.git
+git clone %DD_AGENT_BUILDER_BRANCH% https://github.com/DataDog/dd-agent-builder.git
 cd dd-agent-builder
 call berks
 call berks vendor 
