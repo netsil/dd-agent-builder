@@ -15,10 +15,15 @@
     "ami_name": "omnibus-build {{timestamp}}",
     "communicator": "winrm",
     "winrm_username": "Administrator",
-    "winrm_password": "{{user `admin_password`}}",
     "user_data_file": "bootstrap-aws.txt"
   }],
-  "provisioners": [{
+  "provisioners": [
+  {
+    "type": "powershell",
+    "scripts": [
+      "install-gitlab.ps1"
+  ]},
+   {
     "type": "powershell",
     "scripts": [
       "install-chef.ps1"
@@ -33,5 +38,10 @@
     "scripts": [
       "chef-prepare.bat"
     ]
-  }]
+  },
+  {
+    "type":"windows-shell",
+    "inline": ["net user Administrator {{user `admin_password`}}"]
+  }
+  ]
 }
