@@ -1,3 +1,6 @@
+before_script:
+  - berks && berks vendor && move berks-cookbooks cookbooks
+
 dd-agent:
   script:
     - chef-client -j c:\cfg\attributes.json -zo dd-agent-builder::build
