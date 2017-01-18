@@ -10,7 +10,21 @@
 # required by the omnibus_build resource
 include_recipe 'chef-sugar::default'
 
-git "#{build_user_home}\\dd-agent-omnibus" do
+dd_agent_omnibus_dir = "#{build_user_home}/dd-agent-omnibus"
+# let's clean bundle state
+# first Gemfile.lock
+file "#{dd_agent_omnibus_dir}/Gemfile.lock" do
+  action :delete
+end
+
+# then .bundle directory
+directory "#{dd_agent_omnibus_dir}/.bundle" do
+  action :delete
+  recursive true
+end
+
+# Sync the repositories
+git dd_agent_omnibus_dir do
   repository 'https://github.com/DataDog/dd-agent-omnibus'
   revision node['dd-agent-builder']['dd-agent-omnibus_branch']
   action :sync
@@ -23,7 +37,7 @@ git "#{build_user_home}\\integrations-core" do
 end
 
 omnibus_build 'datadog-agent' do
-  project_dir "#{build_user_home}\\dd-agent-omnibus"
+  project_dir dd_agent_omnibus_dir
   log_level :info
   install_dir node['dd-agent-builder']['install_dir']
   environment 'AGENT_BRANCH' => node['dd-agent-builder']['dd-agent_branch'],
