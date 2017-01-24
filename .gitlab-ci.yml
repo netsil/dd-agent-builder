@@ -1,3 +1,16 @@
+before_script:
+  - call berks
+  - call berks vendor
+  - move berks-cookbooks cookbooks
+  - echo done with berks
+  
 dd-agent:
   script:
     - chef-client -j c:\cfg\attributes.json -zo dd-agent-builder::build
+  after_script:
+    - mkdir pkg
+    - copy c:\omnibus-ruby\pkg\*.msi pkg
+    - copy c:\omnibus-ruby\pkg\*.appx pkg
+  artifacts:
+    paths:
+      - pkg/
