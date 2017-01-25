@@ -7,6 +7,9 @@
 # All rights reserved - Do Not Redistribute
 #
 
+# required by the omnibus_build resource
+include_recipe 'chef-sugar::default'
+
 git "#{build_user_home}\\dd-agent-omnibus" do
   repository 'https://github.com/DataDog/dd-agent-omnibus'
   revision node['dd-agent-builder']['dd-agent-omnibus_branch']
