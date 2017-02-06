@@ -9,7 +9,7 @@ default['dd-agent-builder']['omnibus-software_branch'] = 'master'
 default['dd-agent-builder']['omnibus-ruby_branch'] = 'master'
 default['dd-agent-builder']['dd-integrations-core_branch'] = 'master'
 
-default['dd-agent-builder']['go']['version'] = '1.6.2'
+default['dd-agent-builder']['go']['version'] = '1.7.5'
 # Values are 386 or amd64
 default['dd-agent-builder']['go']['platform'] = 'amd64'
 default['dd-agent-builder']['go']['gopath'] = "#{ENV['HOME']}\\go"
