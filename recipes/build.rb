@@ -23,6 +23,13 @@ directory "#{dd_agent_omnibus_dir}/.bundle" do
   recursive true
 end
 
+# delete Gohai cache (otherwise build fails)
+# DELETE ME WHEN CENTOS 5 IS EOL
+directory 'C:\omnibus-ruby\cache\src' do
+  action :delete
+  recursive true
+end
+
 # Sync the repositories
 git dd_agent_omnibus_dir do
   repository 'https://github.com/DataDog/dd-agent-omnibus'
