@@ -9,6 +9,7 @@
 
 include_recipe 'omnibus'
 include_recipe 'dd-agent-builder::golang'
+include_recipe 'build-essential::default'
 
 directory node['dd-agent-builder']['install_dir'] do
   action :create
