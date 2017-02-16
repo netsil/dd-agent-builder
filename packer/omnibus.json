@@ -34,6 +34,11 @@
     "destination": "c:\\cfg\\attributes.json"
   },
   {
+    "type": "file",
+    "source": "int-sdk.bat",
+    "destination": "c:\\cfg\\int-sdk.bat"
+  },
+  {
     "type": "windows-shell",
     "scripts": [
       "chef-prepare.bat"
