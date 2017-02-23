@@ -1,0 +1,19 @@
+before_script:
+  - call berks
+  - call berks vendor
+  - move berks-cookbooks cookbooks
+  - echo done with berks
+  
+dd-agent:
+  tags:
+    - windows-builder
+  script:
+    - chef-client -j c:\cfg\attributes.json -zo dd-agent-builder::build -l info
+  after_script:
+    - mkdir pkg
+    - copy c:\omnibus-ruby\pkg\*.msi pkg
+    - copy c:\omnibus-ruby\pkg\*.exe pkg
+  artifacts:
+    expire_in: 2 weeks
+    paths:
+      - pkg/
