@@ -3,11 +3,11 @@ default['omnibus']['build_user_group'] = 'omnibus_group'
 default['omnibus']['build_user_password'] = 'defaultwindowspassword'
 
 default['dd-agent-builder']['install_dir'] = 'C:\opt\datadog-agent'
-default['dd-agent-builder']['dd-agent_branch'] = 'master'
-default['dd-agent-builder']['dd-agent-omnibus_branch'] = 'master'
-default['dd-agent-builder']['omnibus-software_branch'] = 'master'
-default['dd-agent-builder']['omnibus-ruby_branch'] = 'master'
-default['dd-agent-builder']['dd-integrations-core_branch'] = 'master'
+default['dd-agent-builder']['dd-agent_branch'] = ENV['DD_AGENT_BRANCH'] || 'master'
+default['dd-agent-builder']['dd-agent-omnibus_branch'] = ENV['DD_AGENT_OMNIBUS_BRANCH'] || 'master'
+default['dd-agent-builder']['omnibus-software_branch'] = ENV['OMNIBUS_SOFTWARE_BRANCH'] || 'master'
+default['dd-agent-builder']['omnibus-ruby_branch'] = ENV['OMNIBUS_RUBY_BRANCH'] || 'datadog-5.5.0'
+default['dd-agent-builder']['dd-integrations-core_branch'] = ENV['INTEGRATIONS_CORE_BRANCH'] || 'master'
 
 default['dd-agent-builder']['go']['version'] = '1.6.4'
 # Values are 386 or amd64
