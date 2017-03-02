@@ -46,6 +46,7 @@ end
 omnibus_build 'datadog-agent' do
   project_dir dd_agent_omnibus_dir
   log_level :info
+  live_stream true
   install_dir node['dd-agent-builder']['install_dir']
   environment 'AGENT_BRANCH' => node['dd-agent-builder']['dd-agent_branch'],
               'OMNIBUS_RUBY_BRANCH' => node['dd-agent-builder']['omnibus-ruby_branch'],
