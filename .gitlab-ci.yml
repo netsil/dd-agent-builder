@@ -8,7 +8,7 @@ dd-agent:
   tags:
     - windows-builder
   script:
-    - chef-client -j c:\cfg\attributes.json -zo dd-agent-builder::build -l info
+    - chef-client --local-mode -o dd-agent-builder::build -l info
   after_script:
     - mkdir pkg
     - copy c:\omnibus-ruby\pkg\*.msi pkg
