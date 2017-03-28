@@ -37,12 +37,6 @@ git dd_agent_omnibus_dir do
   action :sync
 end
 
-git "#{build_user_home}\\integrations-core" do
-  repository 'https://github.com/DataDog/integrations-core'
-  revision node['dd-agent-builder']['dd-integrations-core_branch']
-  action :sync
-end
-
 omnibus_build 'datadog-agent' do
   project_dir dd_agent_omnibus_dir
   log_level :info
@@ -50,6 +44,7 @@ omnibus_build 'datadog-agent' do
   install_dir node['dd-agent-builder']['install_dir']
   environment 'AGENT_BRANCH' => node['dd-agent-builder']['dd-agent_branch'],
               'OMNIBUS_RUBY_BRANCH' => node['dd-agent-builder']['omnibus-ruby_branch'],
-              'OMNIBUS_SOFTWARE_BRANCH' => node['dd-agent-builder']['omnibus-software_branch']
+              'OMNIBUS_SOFTWARE_BRANCH' => node['dd-agent-builder']['omnibus-software_branch'],
+              'INTEGRATION_CORE_BRANCH' => node['dd-agent-builder']['dd-integrations-core_branch']
   config_overrides 'append_timestamp' => false
 end
