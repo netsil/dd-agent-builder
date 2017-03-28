@@ -45,6 +45,6 @@ omnibus_build 'datadog-agent' do
   environment 'AGENT_BRANCH' => node['dd-agent-builder']['dd-agent_branch'],
               'OMNIBUS_RUBY_BRANCH' => node['dd-agent-builder']['omnibus-ruby_branch'],
               'OMNIBUS_SOFTWARE_BRANCH' => node['dd-agent-builder']['omnibus-software_branch'],
-              'INTEGRATION_CORE_BRANCH' => node['dd-agent-builder']['dd-integrations-core_branch']
+              'INTEGRATION_CORE_BRANCH' => node['dd-agent-builder']['integrations-core_branch']
   config_overrides 'append_timestamp' => false
 end
