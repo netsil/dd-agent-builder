@@ -1,0 +1,8 @@
+{
+  "dd-agent-builder": {
+    "omnibus-ruby_branch": "datadog-5.5.0"
+  },
+  "omnibus": {
+     "build_user_password": "DDBuildR0cks!"
+  }
+}
