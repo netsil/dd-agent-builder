@@ -3,12 +3,17 @@ before_script:
   - call berks vendor
   - move berks-cookbooks cookbooks
   - echo done with berks
+  - rd /s/q c:\omnibus
+  - rd /s/q c:\omnibus-ruby
+  - rd /s/q c:\opt\datadog-agent
+
   
 dd-agent:
   tags:
     - windows-builder
   script:
-    - chef-client -j .\attributes.json --local-mode -o dd-agent-builder::build -l info
+    - call chef-client -j .\attributes.json --local-mode -o dd-agent-builder::prepare -l info
+    - call chef-client -j .\attributes.json --local-mode -o dd-agent-builder::build -l info
   after_script:
     - mkdir pkg
     - copy c:\omnibus-ruby\pkg\*.msi pkg
