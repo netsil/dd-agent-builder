@@ -1,7 +1,12 @@
 {
   "dd-agent-builder": {
+    "dd-agent-omnibus_branch": "5.13.x",
+    "omnibus-software_branch": "5.13.x",
+    "dd-agent_branch": "5.13.x",
+    "integrations-core_branch": "5.13.x",
     "omnibus-ruby_branch": "datadog-5.5.0"
   },
   "omnibus": {
+     "build_user_password": "DDBuildR0cks!"
   }
 }
