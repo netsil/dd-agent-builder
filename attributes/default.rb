@@ -1,6 +1,7 @@
 default['omnibus']['build_user'] = 'omnibus'
 default['omnibus']['build_user_group'] = 'omnibus_group'
-default['omnibus']['build_user_password'] = 'defaultwindowspassword'
+raise 'BUILD_USER_PASSWORD not set!' unless ENV['BUILD_USER_PASSWORD']
+default['omnibus']['build_user_password'] = "#{ENV['BUILD_USER_PASSWORD']}"
 
 default['dd-agent-builder']['install_dir'] = 'C:\opt\datadog-agent'
 default['dd-agent-builder']['dd-agent_branch'] = ENV['DD_AGENT_BRANCH'] || 'master'
