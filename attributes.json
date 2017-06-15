@@ -1,5 +1,7 @@
 {
   "dd-agent-builder": {
+      "dd-agent_branch": "db/proxy_cfg_cmdline",
+      "dd-agent-omnibus_branch": "db/proxy_cfg_cmdline",
       "omnibus-ruby_branch": "datadog-5.5.0"
   },
   "omnibus": {
