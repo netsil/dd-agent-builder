@@ -1,7 +1,6 @@
 {
   "dd-agent-builder": {
-      "omnibus-software_branch": "db/upgrade_use_go",
-      "omnibus-ruby_branch": "db/force_local"
+      "omnibus-ruby_branch": "datadog-5.5.0"
   },
   "omnibus": {
   }
