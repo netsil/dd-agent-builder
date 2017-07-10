@@ -10,6 +10,7 @@ default['dd-agent-builder']['omnibus-software_branch'] = ENV['OMNIBUS_SOFTWARE_B
 default['dd-agent-builder']['omnibus-ruby_branch'] = ENV['OMNIBUS_RUBY_BRANCH'] || 'datadog-5.5.0'
 default['dd-agent-builder']['integrations-core_branch'] = ENV['INTEGRATIONS_CORE_BRANCH'] || 'master'
 
+default['dd-agent-builder']['jmx-fetch_version'] = ENV['JMX_VERSION'] || '0.14.0'
 default['dd-agent-builder']['go']['version'] = '1.6.4'
 # Values are 386 or amd64
 default['dd-agent-builder']['go']['platform'] = 'amd64'
