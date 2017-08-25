@@ -1,7 +1,10 @@
 {
   "dd-agent-builder": {
-      "omnibus-ruby_branch": "datadog-5.5.0"
-  },
+    "dd-agent_branch": "5.17.x",
+    "dd-agent-omnibus_branch": "5.17.x",
+    "omnibus-software_branch": "5.17.x",
+    "integrations-core_branch": "5.17.x",
+    "omnibus-ruby_branch": "datadog-5.5.0"},
   "omnibus": {
   }
 }
