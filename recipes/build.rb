@@ -46,6 +46,7 @@ omnibus_build 'datadog-agent' do
               'OMNIBUS_RUBY_BRANCH' => node['dd-agent-builder']['omnibus-ruby_branch'],
               'OMNIBUS_SOFTWARE_BRANCH' => node['dd-agent-builder']['omnibus-software_branch'],
               'INTEGRATIONS_CORE_BRANCH' => node['dd-agent-builder']['integrations-core_branch'],
+              'TRACE_AGENT_BRANCH' => node['dd-agent-builder']['trace-agent_branch'],
               'JMX_VERSION' => node['dd-agent-builder']['jmx-fetch_version']
   config_overrides 'append_timestamp' => false
 end
