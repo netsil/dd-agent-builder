@@ -1,6 +1,6 @@
 {
   "dd-agent-builder": {
-      "dd-agent_branch": "5.19.x",
+      "dd-agent_branch": "olivielpeau/svc-deps-5-19",
       "dd-agent-omnibus_branch": "5.19.x",
       "integrations-core_branch": "5.19.x",
       "omnibus-software_branch": "5.19.x",
