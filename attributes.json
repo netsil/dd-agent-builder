@@ -1,6 +1,6 @@
 {
   "dd-agent-builder": {
-      "dd-agent_branch": "5.20.x",
+      "dd-agent_branch": "db/fix_gui_no_api_key",
       "dd-agent-omnibus_branch": "5.20.x",
       "integrations-core_branch": "5.20.x",
       "omnibus-software_branch": "5.20.x",
