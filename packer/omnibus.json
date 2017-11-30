@@ -2,7 +2,8 @@
   "variables": {
     "aws_access_key": "",
     "aws_secret_key": "",
-    "admin_password": ""
+    "admin_password": "",
+    "build_user_password": ""
   },
   "_comment": "AMicrosoft Windows Server 2012 R2 Base - ami-21414f36",
   "builders": [{
@@ -18,6 +19,10 @@
     "user_data_file": "bootstrap-aws.txt"
   }],
   "provisioners": [
+  {
+      "type": "powershell",
+      "inline": ["[Environment]::SetEnvironmentVariable(\"BUILD_USER_PASSWORD\", \"{{user `build_user_password`}}\", \"System\")"]
+  },
   {
     "type": "powershell",
     "scripts": [
