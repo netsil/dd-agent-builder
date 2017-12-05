@@ -7,7 +7,7 @@
   },
   "_comment": "AMicrosoft Windows Server 2012 R2 Base - ami-21414f36",
   "builders": [{
-    "source_ami": "ami-21414f36",
+    "source_ami": "ami-4009963a",
     "type": "amazon-ebs",
     "access_key": "{{user `aws_access_key`}}",
     "secret_key": "{{user `aws_secret_key`}}",
@@ -21,7 +21,7 @@
   "provisioners": [
   {
       "type": "powershell",
-      "inline": ["[Environment]::SetEnvironmentVariable(\"BUILD_USER_PASSWORD\", \"{{user `build_user_password`}}\", \"System\")"]
+      "inline": ["[Environment]::SetEnvironmentVariable(\"BUILD_USER_PASSWORD\", \"{{user `build_user_password`}}\", \"Machine\")"]
   },
   {
     "type": "powershell",
