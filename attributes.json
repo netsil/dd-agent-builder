@@ -4,7 +4,7 @@
       "dd-agent-omnibus_branch": "5.21.x",
       "integrations-core_branch": "5.21.x",
       "omnibus-software_branch": "5.21.x",
-      "trace-agent_branch": "5.20.0",
+      "trace-agent_branch": "5.21.1",
       "omnibus-ruby_branch": "datadog-5.5.0"
   },
   "omnibus": {
