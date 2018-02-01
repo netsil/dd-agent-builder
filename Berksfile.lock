@@ -43,7 +43,7 @@ GRAPH
   windows (2.1.1)
     ohai (>= 4.0.0)
   windows-sdk (1.0.2)
-  wix (3.0.0)
+  wix (4.0.0)
     windows (>= 1.38.2)
   yum-epel (2.1.1)
     compat_resource (>= 12.16.3)
