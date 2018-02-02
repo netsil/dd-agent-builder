@@ -1,5 +1,7 @@
 {
   "dd-agent-builder": {
+      "dd-agent-omnibus_branch": "db/add_process",
+      "dd-agent_branch": "db/add_process",
       "omnibus-ruby_branch": "datadog-5.5.0"
   },
   "omnibus": {
