@@ -1,7 +1,7 @@
 {
   "dd-agent-builder": {
-      "dd-agent_branch": "master",
-      "dd-agent-omnibus_branch": "jaime/debugwin",
+      "dd-agent_branch": "jaime/nochecksd",
+      "dd-agent-omnibus_branch": "master",
       "integrations-core_branch": "master",
       "omnibus-software_branch": "master",
       "trace-agent_branch": "5.21.1",
