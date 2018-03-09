@@ -37,16 +37,60 @@ git dd_agent_omnibus_dir do
   action :sync
 end
 
+ruby_block 'set env variables from release.json and attributes.json' do
+  block do
+    require 'json'
+
+    file = File.read(File.join(dd_agent_omnibus_dir, "release.json"))
+    releases = JSON.parse(file)
+
+    release_version = node['dd-agent-builder']['release_version']
+    Chef::Log.info("Using release_version: #{release_version}")
+    if not releases.key?(release_version)
+      raise "Error: could not find release #{release_version}"
+    end
+
+    # supported variables
+    vars = {'dd-agent_branch'      => 'AGENT_BRANCH',
+      'agent_version'              => 'AGENT_VERSION',
+      'agent6_branch'              => 'AGENT6_BRANCH',
+      'integrations-core_branch'   => 'INTEGRATIONS_CORE_BRANCH',
+      'trace-agent_branch'         => 'TRACE_AGENT_BRANCH',
+      'trace_agent_add_build_vars' => 'TRACE_AGENT_ADD_BUILD_VARS',
+      'process_agent_branch'       => 'PROCESS_AGENT_BRANCH',
+      'omnibus-ruby_branch'        => 'OMNIBUS_RUBY_BRANCH',
+      'omnibus-software_branch'    => 'OMNIBUS_SOFTWARE_BRANCH',
+    }
+
+    # We first fetch variables from the release.json from dd-agent-omnibus
+    vars.values().each do |v|
+      if not releases[release_version].key?(v)
+        raise "Error: missing '#{v}' variable from release.json (version #{release_version})"
+      end
+      Chef::Log.info("exporting from release.json: #{v}=#{releases[release_version][v]}")
+      ENV[v] = releases[release_version][v]
+    end
+
+    # We then allow overritte from local attributes.json (useful for development build)
+    vars.each() do |k, v|
+      if node['dd-agent-builder'].key?(k)
+        Chef::Log.info("overwrite from attributes.json: #{v}=#{node['dd-agent-builder'][k]}")
+        ENV[v] = node['dd-agent-builder'][k]
+      end
+    end
+
+    Chef::Log.info("Final values:")
+    vars.values().each do |v|
+      Chef::Log.info("  #{v}=#{ENV[v]}")
+    end
+
+  end
+end
+
 omnibus_build 'datadog-agent' do
   project_dir dd_agent_omnibus_dir
   log_level :info
   live_stream true
   install_dir node['dd-agent-builder']['install_dir']
-  environment 'AGENT_BRANCH' => node['dd-agent-builder']['dd-agent_branch'],
-              'OMNIBUS_RUBY_BRANCH' => node['dd-agent-builder']['omnibus-ruby_branch'],
-              'OMNIBUS_SOFTWARE_BRANCH' => node['dd-agent-builder']['omnibus-software_branch'],
-              'INTEGRATIONS_CORE_BRANCH' => node['dd-agent-builder']['integrations-core_branch'],
-              'TRACE_AGENT_BRANCH' => node['dd-agent-builder']['trace-agent_branch'],
-              'JMX_VERSION' => node['dd-agent-builder']['jmx-fetch_version']
   config_overrides 'append_timestamp' => false
 end
