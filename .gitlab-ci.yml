@@ -7,10 +7,9 @@ before_script:
   - rd /s/q c:\omnibus-ruby
   - rd /s/q c:\opt\datadog-agent
 
-  
+
 dd-agent:
-  tags:
-    - windows-builder
+  tags: [ "runner:windows-agent5" ]
   script:
     - call chef-client -j .\attributes.json --local-mode -o dd-agent-builder::prepare -l info
     - call chef-client -j .\attributes.json --local-mode -o dd-agent-builder::build -l info
