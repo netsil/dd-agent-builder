@@ -3,7 +3,7 @@
 dd-agent:
   tags: [ "runner:windows-agent5" ]
   script:
-    - docker run -m 4096M -v %CD%:c:\mnt 486234852809.dkr.ecr.us-east-1.amazonaws.com/ci/datadog-agent-builders/windows-agent5:v-e0bbbc1
+    - docker run -m 4096M -v %CD%:c:\mnt 486234852809.dkr.ecr.us-east-1.amazonaws.com/ci/datadog-agent-builders/windows-agent5:v-57371ab
   artifacts:
     expire_in: 2 weeks
     paths:
