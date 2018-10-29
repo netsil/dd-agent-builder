@@ -1,3 +1,13 @@
+## Epoch-dd-agent build instructions
+====================================
+1.Perform below steps from root of this repo . Below are `bat` format commands .
+   - call berks
+   - call berks vendor
+   - move berks-cookbooks cookbooks
+2. Run `./run.bat` to set environment and build dd-agent and generate a `.msi` and `.exe` at `C:\omnibus-ruby\pkg` location.
+
+Note: DD-agent section follows
+
 dd-agent-builder cookbook
 =========================
 
@@ -13,6 +23,9 @@ Installs Golang and all the dependencies of Omnibus, and downloads `dd-agent-omn
 ## dd-agent-builder::build
 
 Builds the agent (with the omnibus_build resource from the omnibus cookbook).
+
+
+
 
 
 Setting custom parameters
