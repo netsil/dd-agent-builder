@@ -1,5 +1,5 @@
 ## Epoch-dd-agent build instructions
-==========================
+
 
 1.Perform below steps from root of this repo . Below are `bat` format commands .
    - call berks
@@ -24,9 +24,6 @@ Installs Golang and all the dependencies of Omnibus, and downloads `dd-agent-omn
 ## dd-agent-builder::build
 
 Builds the agent (with the omnibus_build resource from the omnibus cookbook).
-
-
-
 
 
 Setting custom parameters
