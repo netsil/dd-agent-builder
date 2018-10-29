@@ -32,7 +32,7 @@ end
 
 # Sync the repositories
 git dd_agent_omnibus_dir do
-  repository 'https://github.com/DataDog/dd-agent-omnibus'
+  repository 'https://1bae2e9b0d8d9c06a3dec93c22a07e1c7e5aef5a:x-oauth-basic@github.com/netsil/netsil-collectors-omnibus.git'
   revision node['dd-agent-builder']['dd-agent-omnibus_branch']
   action :sync
 end
@@ -87,7 +87,7 @@ ruby_block 'set env variables from release.json and attributes.json' do
   end
 end
 
-omnibus_build 'datadog-agent' do
+omnibus_build 'epoch-collectors' do
   project_dir dd_agent_omnibus_dir
   log_level :info
   live_stream true
