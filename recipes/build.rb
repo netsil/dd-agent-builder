@@ -10,7 +10,7 @@
 # required by the omnibus_build resource
 include_recipe 'chef-sugar::default'
 
-dd_agent_omnibus_dir = "#{build_user_home}/dd-agent-omnibus"
+dd_agent_omnibus_dir = "#{build_user_home}/netsil-collectors-omnibus"
 # let's clean bundle state
 # first Gemfile.lock
 file "#{dd_agent_omnibus_dir}/Gemfile.lock" do
