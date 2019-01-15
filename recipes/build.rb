@@ -32,7 +32,7 @@ end
 
 # Sync the repositories
 git dd_agent_omnibus_dir do
-  repository 'https://1bae2e9b0d8d9c06a3dec93c22a07e1c7e5aef5a:x-oauth-basic@github.com/netsil/netsil-collectors-omnibus.git'
+  repository 'https://138ae668a07418d4577faf7571f51f7a7d83cf15:x-oauth-basic@github.com/netsil/netsil-collectors-omnibus.git'
   revision node['dd-agent-builder']['dd-agent-omnibus_branch']
   action :sync
 end
